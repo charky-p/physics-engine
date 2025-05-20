@@ -9,6 +9,8 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 # Add sources here
 set(SOURCES
     src/Engine.cpp
+    src/Vec2.cpp
+    src/main.cpp
 )
 
 # Add the executable from src/main.cpp
