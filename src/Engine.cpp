@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "../include/Engine.hpp"
 #include "../include/Vec2.hpp"
+#include "../include/Body.hpp"
 
 Engine::Engine() {
     this->gravity = 9.8f;
@@ -25,14 +26,18 @@ void Engine::render() {
         }
 
         window.clear(sf::Color::Black);
+        // Render bodies
+        for (Body body : bodies) {
+            body.draw(window);
+        }
         window.display();
     }
 }
 
-Body Engine::createBody(Vec2 pos, float mass, float radius) {
+void Engine::createBody(Vec2 pos, float mass, float radius) {
     bodies.push_back(Body{pos, Vec2{}, mass, radius});
 }
 
-Body Engine::createBody(Vec2 pos, float mass, float radius, Vec2 initialVelocity) {
+void Engine::createBody(Vec2 pos, float mass, float radius, Vec2 initialVelocity) {
     bodies.push_back(Body{pos, initialVelocity, mass, radius});
 }

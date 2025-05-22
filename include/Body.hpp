@@ -1,4 +1,6 @@
+#pragma once
 #include "../include/Vec2.hpp"
+#include "SFML/Graphics.hpp"
 
 class Body {
   private:
@@ -13,4 +15,6 @@ class Body {
     void update(float deltaTime);
 
     Vec2 getPosition();
+
+    void draw(sf::RenderWindow& window);
 };

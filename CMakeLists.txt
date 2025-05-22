@@ -10,6 +10,7 @@ include_directories(${PROJECT_SOURCE_DIR}/include)
 set(SOURCES
     src/Engine.cpp
     src/Vec2.cpp
+    src/Body.cpp
     src/main.cpp
 )
 
