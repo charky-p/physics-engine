@@ -28,3 +28,11 @@ void Engine::render() {
         window.display();
     }
 }
+
+Body Engine::createBody(Vec2 pos, float mass, float radius) {
+    bodies.push_back(Body{pos, Vec2{}, mass, radius});
+}
+
+Body Engine::createBody(Vec2 pos, float mass, float radius, Vec2 initialVelocity) {
+    bodies.push_back(Body{pos, initialVelocity, mass, radius});
+}
