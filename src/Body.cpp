@@ -2,11 +2,11 @@
 #include "../include/Body.hpp"
 #include "SFML/Graphics.hpp"
 
-Body::Body(Vec2 pos, Vec2 initialVelocity, double m, double r) {
-    position = pos;
-    velocity = initialVelocity;
-    mass = m;
-    radius = r;
+Body::Body(Vec2 position, Vec2 initialVelocity, double mass, double radius) {
+    this->position = position;
+    this->velocity = initialVelocity;
+    this->mass = mass;
+    this->radius = radius;
 }
 
 void Body::applyForce(Vec2 force) {

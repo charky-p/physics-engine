@@ -25,6 +25,9 @@ void Engine::render() {
             }
         }
 
+        // Tick
+        // tick();
+
         window.clear(sf::Color::Black);
         // Render bodies
         for (Body body : bodies) {
