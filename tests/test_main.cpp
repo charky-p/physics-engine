@@ -6,7 +6,7 @@ TEST_CASE("Simple math test", "[example]") {
 }
 
 TEST_CASE("Very NICE") {
-    REQUIRE(1 + 2 == 5);
+    REQUIRE(1 + 2 == 3);
 }
 
 TEST_CASE("EXAMPLES", "[tag]") {
