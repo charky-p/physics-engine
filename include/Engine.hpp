@@ -14,5 +14,6 @@ public:
 private:
     // Meta info
     float gravity;
+    bool doMerge;
     std::vector<Body> bodies;
 };

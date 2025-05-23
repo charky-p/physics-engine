@@ -1,4 +1,5 @@
 #include <iostream>
+#include <set>
 #include <SFML/Graphics.hpp>
 #include "../include/Engine.hpp"
 #include "../include/Vec2.hpp"
@@ -6,6 +7,8 @@
 
 Engine::Engine() {
     this->gravity = 6.67430e-11;
+    // Do merge by default
+    this->doMerge = true;
 }
 
 void Engine::render() {
@@ -104,6 +107,23 @@ void Engine::tick(float dt) {
             body1.applyForce(unit);
             unit.mult(-1);
             body2.applyForce(unit);
+        }
+    }
+
+    if (doMerge) {
+        std::set<int> alreadyMerged;
+        for (auto& pair : merging) {
+            int i = pair.first;
+            int j = pair.second;
+            if (alreadyMerged.count(i) || alreadyMerged.count(j)) {
+                continue;
+            }
+
+            bodies[i].merge(bodies[j]);
+            bodies.erase(bodies.begin() + j);
+
+            alreadyMerged.insert(i);
+            alreadyMerged.insert(j);
         }
     }
 
