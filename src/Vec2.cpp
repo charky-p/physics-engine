@@ -12,12 +12,12 @@ Vec2::Vec2(float x, float y) {
     this->y = y;
 }
 
-void Vec2::add(Vec2& other) {
+void Vec2::add(const Vec2& other) {
     x += other.getX();
     y += other.getY();
 }
 
-void Vec2::sub(Vec2& other) {
+void Vec2::sub(const Vec2& other) {
     x -= other.getX();
     y -= other.getY();
 }
@@ -35,7 +35,7 @@ void Vec2::div(float scalar) {
     y /= scalar;
 }
 
-float Vec2::dot(Vec2& other) {
+float Vec2::dot(const Vec2& other) {
     return x * other.getX() + y * other.getY();
 }
 
@@ -51,10 +51,10 @@ Vec2 Vec2::norm() {
     return Vec2();
 }
 
-float Vec2::getX() {
+float Vec2::getX() const {
     return x;
 }
 
-float Vec2::getY() {
+float Vec2::getY() const {
     return y;
 }

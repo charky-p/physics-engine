@@ -1,6 +1,7 @@
 #include "../include/Vec2.hpp"
 #include "../include/Body.hpp"
 #include "SFML/Graphics.hpp"
+#include <iostream>
 
 Body::Body(Vec2 position, Vec2 initialVelocity, double mass, double radius) {
     this->position = position;
@@ -11,7 +12,9 @@ Body::Body(Vec2 position, Vec2 initialVelocity, double mass, double radius) {
 
 void Body::applyForce(Vec2 force) {
     // Implement proper equation here, account for mass gravity etc.
-    acceleration.add(force);
+    Vec2 acceleration = force;
+    acceleration.div(mass);
+    this->acceleration.add(acceleration);
 }
 
 void Body::update(float deltaTime) {
@@ -35,5 +38,13 @@ void Body::draw(sf::RenderWindow& window) {
 }
 
 Vec2 Body::getPosition() {
-    return position;
+    return Vec2{position.getX(), position.getY()};
+}
+
+double Body::getMass() {
+    return mass;
+}
+
+double Body::getRadius() {
+    return radius;
 }

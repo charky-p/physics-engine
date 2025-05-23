@@ -14,7 +14,11 @@ class Body {
 
     void update(float deltaTime);
 
+    void draw(sf::RenderWindow& window);
+
     Vec2 getPosition();
 
-    void draw(sf::RenderWindow& window);
+    double getMass();
+
+    double getRadius();
 };
