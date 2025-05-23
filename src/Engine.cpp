@@ -110,6 +110,7 @@ void Engine::tick(float dt) {
         }
     }
 
+    // Merging
     if (doMerge) {
         std::set<int> alreadyMerged;
         for (auto& pair : merging) {
