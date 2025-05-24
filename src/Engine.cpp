@@ -45,7 +45,7 @@ void Engine::render() {
         }
 
         // Tick
-        tick(dt);
+        tick(dt * timeScale);
 
         // Set view to be the centroid of all the bodies
         if (!bodies.empty()) {
@@ -62,7 +62,7 @@ void Engine::render() {
         // Render bodies
         for (Body& body : bodies) {
             body.draw(window);
-        }
+        }   
         window.display();
     }
 }
@@ -132,4 +132,12 @@ void Engine::tick(float dt) {
     for (Body& body : bodies) {
         body.update(dt);
     }
+}
+
+void Engine::setGravity(float gravity) {
+    this->gravity = gravity;
+}
+
+void Engine::setTimeScale(double timeScale) {
+    this->timeScale = timeScale;
 }
